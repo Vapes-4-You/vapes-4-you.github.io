@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elux E-Liquid (5 For £15) | Vapes 4 You</title>
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+<style>
+body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+.container { display: flex; flex-wrap: wrap; gap: 20px; }
+.left { flex: 2; min-width: 300px; }
+.right { flex: 1; min-width: 250px; border: 1px solid #ccc; background: #fff; padding: 20px; border-radius: 8px; }
+h1 { margin-bottom: 20px; }
+p { line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+<div class="container">
+  <!-- Left: Product Info -->
+  <div class="left">
+    <h1>Elux E-Liquid (5 For £15)</h1>
+    <p>Experience the smooth, satisfying flavour of Elux Brand Vape Liquid, expertly crafted to enhance your vaping experience. Made with premium ingredients, Elux Vape Liquid delivers rich, consistent vapour with every puff. Available in a variety of delicious flavours, it caters to both beginners and experienced vapers seeking quality and reliability. Perfectly balanced with the ideal nicotine strength, this vape liquid ensures a smooth throat hit without harshness. Whether you’re looking to unwind or enjoy a flavourful vape session, Elux Brand Vape Liquid provides a clean, enjoyable vape every time. Elevate your vape with Elux — the trusted choice for flavour and satisfaction.</p>
+  </div>
+
+  <!-- Right: Buy Card with Stripe -->
+  <div class="right">
+    <h2>Buy Now</h2>
+    <p>Price: £3.50</p>
+
+    <!-- Stripe Buy Buttons for all variants -->
+    <p>Blue Sour Raspberry - 20mg</p>
+    <stripe-buy-button
+      buy-button-id="buy_btn_1T31AsPfRo9VZkw9207Ciiq2"
+      publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+    ></stripe-buy-button>
+
+    <p>Blue Sour Raspberry - 10mg</p>
+    <stripe-buy-button
+      buy-button-id="buy_btn_BSR10"
+      publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+    ></stripe-buy-button>
+
+    <p>Triple Mango - 20mg</p>
+    <stripe-buy-button
+      buy-button-id="buy_btn_TM20"
+      publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+    ></stripe-buy-button>
+
+    <p>Triple Mango - 10mg</p>
+    <stripe-buy-button
+      buy-button-id="buy_btn_TM10"
+      publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+    ></stripe-buy-button>
+
+  </div>
+</div>
+
+</body>
+</html>
