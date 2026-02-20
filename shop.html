@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vapes 4 You Shop</title>
+<script src="https://js.stripe.com/v3/"></script>
+<style>
+body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+h1 { text-align: center; margin-bottom: 30px; }
+.category { border: 1px solid #ccc; margin-bottom: 15px; background: #fff; border-radius: 8px; }
+.category button { width: 100%; text-align: left; padding: 15px; font-size: 18px; cursor: pointer; border: none; background: #6772e5; color: #fff; border-radius: 8px 8px 0 0; }
+.category button:hover { background: #5469d4; }
+.variants { display: none; padding: 15px; }
+.variant { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.variant button { padding: 8px 15px; background: #28a745; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+.variant button:hover { background: #218838; }
+</style>
+</head>
+<body>
+
+<h1>Vapes 4 You Shop</h1>
+
+<!-- Aspire Gotek -->
+<div class="category">
+  <button class="toggle">Aspire Gotek</button>
+  <div class="variants">
+    <div class="variant">
+      <span>Gotek X - £11.99</span>
+      <button onclick="window.location.href='LINK_FOR_GOTEK_X'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Gotek Pod 0.8 Ohms - £5.00</span>
+      <button onclick="window.location.href='LINK_FOR_GOTEK_POD'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>2 For £8 - Pods - £8.00</span>
+      <button onclick="window.location.href='LINK_FOR_2FOR8'">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Blue Raspberry E-Liquid -->
+<div class="category">
+  <button class="toggle">Blue Raspberry - E-Liquid</button>
+  <div class="variants">
+    <div class="variant">
+      <span>20mg - £12.50</span>
+      <button onclick="window.location.href='LINK_FOR_20MG'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>18mg - £12.50</span>
+      <button onclick="window.location.href='LINK_FOR_18MG'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>0mg - £10.00</span>
+      <button onclick="window.location.href='LINK_FOR_0MG'">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Dinner Lady E-Liquid -->
+<div class="category">
+  <button class="toggle">Dinner Lady E-Liquid</button>
+  <div class="variants">
+    <div class="variant">
+      <span>Menthol 20mg - £4.99</span>
+      <button onclick="window.location.href='LINK_FOR_MENTHOL20'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Menthol 10mg - £4.99</span>
+      <button onclick="window.location.href='LINK_FOR_MENTHOL10'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Menthol 5mg - £4.99</span>
+      <button onclick="window.location.href='LINK_FOR_MENTHOL5'">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Elux E-Liquid (5 For £15) -->
+<div class="category">
+  <button class="toggle">Elux E-Liquid (5 For £15)</button>
+  <div class="variants">
+    <div class="variant">
+      <span>Blue Sour Raspberry - 20mg - £3.50</span>
+      <button onclick="window.location.href='LINK_FOR_ELUX_BSR20'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Blue Sour Raspberry - 10mg - £3.50</span>
+      <button onclick="window.location.href='LINK_FOR_ELUX_BSR10'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Triple Mango - 20mg - £3.50</span>
+      <button onclick="window.location.href='LINK_FOR_ELUX_TM20'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Triple Mango - 10mg - £3.50</span>
+      <button onclick="window.location.href='LINK_FOR_ELUX_TM10'">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hayati Quokka Pro -->
+<div class="category">
+  <button class="toggle">Hayati Quokka Pro - £17.49</button>
+  <div class="variants">
+    <div class="variant">
+      <span>Hayati Quokka Pro - £17.49</span>
+      <button onclick="window.location.href='LINK_FOR_HAYATI'">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Innokin ArcFire -->
+<div class="category">
+  <button class="toggle">Innokin ArcFire</button>
+  <div class="variants">
+    <div class="variant">
+      <span>Innokin ArcFire - £9.99</span>
+      <button onclick="window.location.href='LINK_FOR_ARCFIRE'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Innokin ArcFire Pods - £5.99</span>
+      <button onclick="window.location.href='LINK_FOR_ARCFIRE_PODS'">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Juxx E-Liquid -->
+<div class="category">
+  <button class="toggle">Juxx E-Liquid</button>
+  <div class="variants">
+    <div class="variant">
+      <span>Blue Sour Raspberry - £2.99</span>
+      <button onclick="window.location.href='LINK_FOR_JUXX_BSR'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Mr. Blue - £2.99</span>
+      <button onclick="window.location.href='LINK_FOR_JUXX_MB'">Buy Now</button>
+    </div>
+    <div class="variant">
+      <span>Triple Mango - £2.99</span>
+      <button onclick="window.location.href='LINK_FOR_JUXX_TM'">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- SKE Crystal Bar (2 For £10) -->
+<div class="category">
+  <button class="toggle">SKE Crystal Bar (2 For £10)</button>
+  <div class="variants">
+    <div class="variant"><span>Cola Ice - £5.99</span><button onclick="window.location.href='LINK_FOR_COLA'">Buy Now</button></div>
+    <div class="variant"><span>Blue Razz Lemonade - £5.99</span><button onclick="window.location.href='LINK_FOR_BRL'">Buy Now</button></div>
+    <div class="variant"><span>Watermelon Ice - £5.99</span><button onclick="window.location.href='LINK_FOR_WATERMELON'">Buy Now</button></div>
+    <div class="variant"><span>Strawberry Blast - £5.99</span><button onclick="window.location.href='LINK_FOR_STRAWBERRY'">Buy Now</button></div>
+    <div class="variant"><span>Fizzy Cherry - £5.99</span><button onclick="window.location.href='LINK_FOR_FIZZY'">Buy Now</button></div>
+    <div class="variant"><span>Sour Pineapple Ice - £5.99</span><button onclick="window.location.href='LINK_FOR_PINEAPPLE'">Buy Now</button></div>
+    <div class="variant"><span>Pink Lemonade - £5.99</span><button onclick="window.location.href='LINK_FOR_PINK'">Buy Now</button></div>
+    <div class="variant"><span>Mango Ice - £5.99</span><button onclick="window.location.href='LINK_FOR_MANGO'">Buy Now</button></div>
+    <div class="variant"><span>Blue Sour Raspberry - £5.99</span><button onclick="window.location.href='LINK_FOR_BSR'">Buy Now</button></div>
+  </div>
+</div>
+
+<script>
+const toggles = document.querySelectorAll('.toggle');
+toggles.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const variants = btn.nextElementSibling;
+    variants.style.display = variants.style.display === 'block' ? 'none' : 'block';
+  });
+});
+</script>
+
+</body>
+</html>
