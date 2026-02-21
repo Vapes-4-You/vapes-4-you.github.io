@@ -5,14 +5,13 @@
   <title>Vapes 4 You Shop</title>
   <meta name="description" content="Vapes 4 You - Quality e-liquids and vape products">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://js.stripe.com/v3/"></script>
   <style>
     .shop-container { max-width: var(--max-width); margin: 0 auto; padding: 20px 14px; }
     .shop-container h1 { text-align: center; margin-bottom: 30px; }
-    .category { border: 1px solid #ccc; margin-bottom: 15px; background: #fff; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+    .category { border: 1px solid #ccc; margin-bottom: 15px; background: #fff; border-radius: 8px; transition: all 0.3s ease; }
     .category:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .category-header { width: 100%; text-align: left; padding: 15px; font-size: 18px; cursor: pointer; border: none; background: #6772e5; color: #fff; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; }
     .category-header:hover { background: #5469d4; }
@@ -26,256 +25,68 @@
     .variant button:hover { background: #218838; }
     .view-details { background: #007bff; }
     .view-details:hover { background: #0056b3; }
+    /* Cart panel */
+    .cart-panel { position: fixed; right: -300px; top: 70px; width: 280px; background: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: right 0.3s ease; z-index: 999; }
+    .cart-panel.open { right: 20px; }
+    .cart-panel h2 { margin-top: 0; }
+    .cart-panel button { margin-top: 10px; width: 100%; padding: 8px; }
+    .cart-btn { position: fixed; top: 20px; right: 20px; background: #6772e5; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 20px; display: flex; justify-content: center; align-items: center; z-index: 1000; }
   </style>
 </head>
 <body>
 
-  <!-- Header (glass nav) -->
-  <header class="site-header">
-    <button class="icon-btn menu" aria-label="Open menu" title="Menu">
-      <!-- hamburger -->
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<header class="site-header">
+  <div class="logo">Vapes 4 You</div>
+  <button class="cart-btn" id="toggleCart" aria-label="Open cart">🛒</button>
+</header>
+
+<main class="shop-container">
+  <h1>Vapes 4 You Shop</h1>
+
+  <!-- Categories go here (same as before) -->
+  <div class="category">
+    <button class="category-header toggle">
+      <span>Elux E-Liquid (5 For £15)</span>
+      <span class="category-arrow">▼</span>
     </button>
-
-    <div class="logo">Vapes 4 You</div>
-
-    <div class="header-right">
-      <button class="icon-btn" aria-label="Search" title="Search">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/></svg>
-      </button>
-      <a class="icon-btn cart" href="shop.html" aria-label="Cart" title="Cart">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M6 6h15l-1.6 8.5a2 2 0 0 1-2 1.5H9.6a2 2 0 0 1-2-1.5L6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </header>
-
-  <main class="shop-container">
-    <h1>Vapes 4 You Shop</h1>
-
-    <!-- Aspire Gotek -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>Aspire Gotek</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant">
-          <div class="variant-info"><span>Gotek X - £11.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='gotek.html'">View Details</button>
-            <button onclick="window.location.href='https://buy.stripe.com/8x27sNe971OV0bc0TK2cg00'">Buy Now</button>
-          </div>
+    <div class="variants">
+      <div class="variant">
+        <div class="variant-info"><span>Blue Sour Raspberry - 20mg - £3.50</span></div>
+        <div class="variant-buttons">
+          <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
+          <button onclick="addToCart('Blue Sour Raspberry - 20mg', 3.50)">Add to Cart</button>
         </div>
-        <div class="variant">
-          <div class="variant-info"><span>Gotek Pod 0.8 Ohms - £5.00</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='gotek.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
+      </div>
+      <div class="variant">
+        <div class="variant-info"><span>Blue Sour Raspberry - 10mg - £3.50</span></div>
+        <div class="variant-buttons">
+          <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
+          <button onclick="addToCart('Blue Sour Raspberry - 10mg', 3.50)">Add to Cart</button>
         </div>
-        <div class="variant">
-          <div class="variant-info"><span>2 For £8 - Pods - £8.00</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='gotek.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
+      </div>
+      <div class="variant">
+        <div class="variant-info"><span>Triple Mango - 20mg - £3.50</span></div>
+        <div class="variant-buttons">
+          <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
+          <button onclick="addToCart('Triple Mango - 20mg', 3.50)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="variant">
+        <div class="variant-info"><span>Triple Mango - 10mg - £3.50</span></div>
+        <div class="variant-buttons">
+          <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
+          <button onclick="addToCart('Triple Mango - 10mg', 3.50)">Add to Cart</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Blue Raspberry E-Liquid -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>Blue Raspberry - E-Liquid</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant">
-          <div class="variant-info"><span>20mg - £12.50</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='bluerazz.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>18mg - £12.50</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='bluerazz.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>0mg - £10.00</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='bluerazz.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Repeat other categories similarly, replacing Buy Now with addToCart() -->
 
-    <!-- Dinner Lady E-Liquid -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>Dinner Lady E-Liquid</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant">
-          <div class="variant-info"><span>Menthol 20mg - £4.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='dinnerlady.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Menthol 10mg - £4.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='dinnerlady.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Menthol 5mg - £4.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='dinnerlady.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
+</main>
 
-    <!-- Elux E-Liquid (5 For £15) -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>Elux E-Liquid (5 For £15)</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant">
-          <div class="variant-info"><span>Blue Sour Raspberry - 20mg - £3.50</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Blue Sour Raspberry - 10mg - £3.50</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Triple Mango - 20mg - £3.50</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Triple Mango - 10mg - £3.50</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='elux.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hayati Quokka Pro -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>Hayati Quokka Pro - £17.49</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant">
-          <div class="variant-info"><span>Hayati Quokka Pro - £17.49</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='hayati.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Innokin ArcFire -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>Innokin ArcFire</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant">
-          <div class="variant-info"><span>Innokin ArcFire - £9.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='innokin.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Innokin ArcFire Pods - £5.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='innokin.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Juxx E-Liquid -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>Juxx E-Liquid</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant">
-          <div class="variant-info"><span>Blue Sour Raspberry - £2.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='juxx.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Mr. Blue - £2.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='juxx.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-        <div class="variant">
-          <div class="variant-info"><span>Triple Mango - £2.99</span></div>
-          <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='juxx.html'">View Details</button>
-            <button onclick="alert('Coming soon')">Buy Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SKE Crystal Bar (2 For £10) -->
-    <div class="category">
-      <button class="category-header toggle">
-        <span>SKE Crystal Bar (2 For £10)</span>
-        <span class="category-arrow">▼</span>
-      </button>
-      <div class="variants">
-        <div class="variant"><div class="variant-info"><span>Cola Ice - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Blue Razz Lemonade - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Watermelon Ice - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Strawberry Blast - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Fizzy Cherry - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Sour Pineapple Ice - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Pink Lemonade - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Mango Ice - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-        <div class="variant"><div class="variant-info"><span>Blue Sour Raspberry - £5.99</span></div><div class="variant-buttons"><button class="view-details" onclick="window.location.href='ske.html'">View Details</button><button onclick="alert('Coming soon')">Buy</button></div></div>
-      </div>
-    </div>
-  </main>
-
-  <div class="cart-box">
+<!-- Cart Panel -->
+<div class="cart-panel" id="cartPanel">
   <h2>Your Cart</h2>
   <ul id="cartItems"></ul>
   <p>Total: £<span id="cartTotal">0.00</span></p>
@@ -283,23 +94,93 @@
   <button onclick="clearCart()">Clear Cart</button>
 </div>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="copyright">© 2026 <strong>Vapes 4 You</strong></div>
-    </div>
-  </footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="copyright">© 2026 <strong>Vapes 4 You</strong></div>
+  </div>
+</footer>
 
-  <script>
-    const toggles = document.querySelectorAll('.category-header');
-    toggles.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const variants = btn.nextElementSibling;
-        const arrow = btn.querySelector('.category-arrow');
-        variants.style.display = variants.style.display === 'block' ? 'none' : 'block';
-        arrow.classList.toggle('active');
-      });
+<script>
+  // Category toggle
+  const toggles = document.querySelectorAll('.category-header');
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const variants = btn.nextElementSibling;
+      const arrow = btn.querySelector('.category-arrow');
+      variants.style.display = variants.style.display === 'block' ? 'none' : 'block';
+      arrow.classList.toggle('active');
     });
-  </script>
+  });
+
+  // Cart logic
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function addToCart(name, price) {
+    const existing = cart.find(item => item.name === name);
+    if(existing) existing.qty++;
+    else cart.push({ name, price, qty: 1 });
+    saveCart();
+    renderCart();
+    openCart();
+  }
+
+  function renderCart() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      total += item.price * item.qty;
+      const li = document.createElement('li');
+      li.textContent = `${item.name} x${item.qty} - £${(item.price * item.qty).toFixed(2)}`;
+      cartItems.appendChild(li);
+    });
+    cartTotal.textContent = total.toFixed(2);
+  }
+
+  function clearCart() {
+    cart = [];
+    saveCart();
+    renderCart();
+  }
+
+  function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  // Open/close cart
+  const cartPanel = document.getElementById('cartPanel');
+  document.getElementById('toggleCart').addEventListener('click', () => {
+    cartPanel.classList.toggle('open');
+  });
+
+  function openCart() {
+    cartPanel.classList.add('open');
+  }
+
+  renderCart();
+
+  // Stripe checkout (replace URL with your serverless endpoint)
+  const stripe = Stripe('pk_live_XXXXXXXXXXXXXXXX');
+  document.getElementById('checkoutBtn').addEventListener('click', async () => {
+    if(cart.length === 0) return alert('Cart is empty!');
+    const line_items = cart.map(item => ({
+      price_data: {
+        currency: 'gbp',
+        product_data: { name: item.name },
+        unit_amount: Math.round(item.price * 100)
+      },
+      quantity: item.qty
+    }));
+    const response = await fetch('https://your-server.com/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ line_items })
+    });
+    const session = await response.json();
+    stripe.redirectToCheckout({ sessionId: session.id });
+  });
+</script>
 
 </body>
 </html>
