@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elux E-Liquid (5 For £15) | Vapes 4 You</title>
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
-<style>
-body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
-.container { display: flex; flex-wrap: wrap; gap: 20px; }
-.left { flex: 2; min-width: 300px; }
-.right { flex: 1; min-width: 250px; border: 1px solid #ccc; background: #fff; padding: 20px; border-radius: 8px; }
-h1 { margin-bottom: 20px; }
-p { line-height: 1.5; }
-</style>
+  <meta charset="UTF-8">
+  <title>Elux E-Liquid (5 For £15) | Vapes 4 You</title>
+  <meta name="description" content="Vapes 4 You - Quality e-liquids and vape products">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <style>
+    .product-container { display: flex; flex-wrap: wrap; gap: 20px; max-width: var(--max-width); margin: 20px auto; padding: 0 14px; }
+    .product-left { flex: 2; min-width: 300px; }
+    .product-right { flex: 1; min-width: 250px; border: 1px solid #ccc; background: #fff; padding: 20px; border-radius: 8px; }
+  </style>
 </head>
 <body>
 
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <!-- Header (glass nav) -->
+  <header class="site-header">
+    <button class="icon-btn menu" aria-label="Open menu" title="Menu">
+      <!-- hamburger -->
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
 
-<div class="container">
-  <!-- Left: Product Info -->
-  <div class="left">
-    <h1>Elux E-Liquid (5 For £15)</h1>
-    <p>Experience the smooth, satisfying flavour of Elux Brand Vape Liquid, expertly crafted to enhance your vaping experience. Made with premium ingredients, Elux Vape Liquid delivers rich, consistent vapour with every puff. Available in a variety of delicious flavours, it caters to both beginners and experienced vapers seeking quality and reliability. Perfectly balanced with the ideal nicotine strength, this vape liquid ensures a smooth throat hit without harshness. Whether you’re looking to unwind or enjoy a flavourful vape session, Elux Brand Vape Liquid provides a clean, enjoyable vape every time. Elevate your vape with Elux — the trusted choice for flavour and satisfaction.</p>
-  </div>
+    <div class="logo">Vapes 4 You</div>
 
-  <!-- Right: Buy Card with Stripe -->
-  <div class="right">
-    <h2>Buy Now</h2>
-    <p>Price: £3.50</p>
+    <div class="header-right">
+      <button class="icon-btn" aria-label="Search" title="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <a class="icon-btn cart" href="shop.html" aria-label="Cart" title="Cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M6 6h15l-1.6 8.5a2 2 0 0 1-2 1.5H9.6a2 2 0 0 1-2-1.5L6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </header>
 
-    <!-- Stripe Buy Buttons for all variants -->
-    <p>Blue Sour Raspberry - 20mg</p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1T31AsPfRo9VZkw9207Ciiq2"
-  publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
->
-</stripe-buy-button>
+  <main class="content">
+    <div class="product-container">
+      <!-- Left: Product Info -->
+      <div class="product-left">
+        <h1>Elux E-Liquid (5 For £15)</h1>
+        <p>Experience the smooth, satisfying flavour of Elux Brand Vape Liquid, expertly crafted to enhance your vaping experience. Made with premium ingredients, Elux Vape Liquid delivers rich, consistent vapour with every puff. Available in a variety of delicious flavours, it caters to both beginners and experienced vapers seeking quality and reliability. Perfectly balanced with the ideal nicotine strength, this vape liquid ensures a smooth throat hit without harshness. Whether you're looking to unwind or enjoy a flavourful vape session, Elux Brand Vape Liquid provides a clean, enjoyable vape every time. Elevate your vape with Elux — the trusted choice for flavour and satisfaction.</p>
+      </div>
 
-    <p>Blue Sour Raspberry - 10mg</p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1T31LsPfRo9VZkw9VEGAaXAD"
-  publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
->
-</stripe-buy-button>
+      <!-- Right: Buy Card with Stripe -->
+      <div class="product-right">
+        <h2>Buy Now</h2>
+        <p>Price: £3.50</p>
 
-    <p>Triple Mango - 20mg</p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1T31N5PfRo9VZkw9ujUBdnME"
-  publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
->
-</stripe-buy-button>
+        <!-- Stripe Buy Buttons for all variants -->
+        <p>Blue Sour Raspberry - 20mg</p>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1T31AsPfRo9VZkw9207Ciiq2"
+          publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+        ></stripe-buy-button>
 
-    <p>Triple Mango - 10mg</p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1T31NYPfRo9VZkw9LfKUdztw"
-  publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
->
-</stripe-buy-button>
+        <p>Blue Sour Raspberry - 10mg</p>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1T31LsPfRo9VZkw9VEGAaXAD"
+          publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+        ></stripe-buy-button>
 
-  </div>
-</div>
+        <p>Triple Mango - 20mg</p>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1T31N5PfRo9VZkw9ujUBdnME"
+          publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+        ></stripe-buy-button>
+
+        <p>Triple Mango - 10mg</p>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1T31NYPfRo9VZkw9LfKUdztw"
+          publishable-key="pk_live_51T2zYsPfRo9VZkw9NhXr63PLGYijuagELCJaXdhUyTv5WW6CPopHH97r1fdFHIuQi3IoMfuMZchj9HI9JoyLtCuL00XvPNVTz9"
+        ></stripe-buy-button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="copyright">© 2026 <strong>Vapes 4 You</strong></div>
+    </div>
+  </footer>
 
 </body>
 </html>
