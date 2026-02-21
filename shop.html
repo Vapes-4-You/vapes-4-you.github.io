@@ -3,40 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Vapes 4 You Shop</title>
+  <meta name="description" content="Vapes 4 You - Quality e-liquids and vape products">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://js.stripe.com/v3/"></script>
   <style>
-    .shop-container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+    .shop-container { max-width: var(--max-width); margin: 0 auto; padding: 20px 14px; }
+    .shop-container h1 { text-align: center; margin-bottom: 30px; }
     .category { border: 1px solid #ccc; margin-bottom: 15px; background: #fff; border-radius: 8px; }
-    .category-header { width: 100%; text-align: left; padding: 15px; font-size: 18px; cursor: pointer; background: #6772e5; color: #fff; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; }
+    .category-header { width: 100%; text-align: left; padding: 15px; font-size: 18px; background: #6772e5; color: #fff; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
     .category-arrow { font-size: 20px; transition: transform 0.3s ease; }
     .category-arrow.active { transform: rotate(180deg); }
     .variants { display: none; padding: 15px; }
     .variant { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .variant-info { flex: 1; }
     .variant-buttons { display: flex; gap: 10px; }
-    .variant button { padding: 8px 12px; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; }
+    .variant-buttons button { padding: 8px 12px; background: #28a745; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; }
+    .variant-buttons button:hover { background: #218838; }
     .view-details { background: #007bff; }
     .view-details:hover { background: #0056b3; }
-    .add-cart { background: #28a745; }
-    .add-cart:hover { background: #218838; }
-    .site-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #f8f8f8; }
-    .cart-btn { padding: 8px 15px; background: #6772e5; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    .cart-count { background: #ff3b30; color: #fff; font-size: 12px; border-radius: 50%; padding: 2px 6px; position: absolute; top: -6px; right: -6px; }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="logo">Vapes 4 You</div>
-    <button class="cart-btn" id="checkoutBtn">Cart (0)</button>
+    <div class="header-right">
+      <button class="icon-btn cart" id="cart-btn" title="Cart">
+        🛒 <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
   </header>
 
   <main class="shop-container">
     <h1>Vapes 4 You Shop</h1>
 
-    <!-- Example Category -->
+    <!-- Example Category Template -->
     <div class="category">
       <button class="category-header toggle">
         <span>Aspire Gotek</span>
@@ -44,29 +50,60 @@
       </button>
       <div class="variants">
         <div class="variant">
-          <div class="variant-info">Gotek X - £11.99</div>
+          <div class="variant-info"><span>Gotek X - £11.99</span></div>
           <div class="variant-buttons">
             <button class="view-details" onclick="window.location.href='gotek.html'">View Details</button>
-            <button class="add-cart" data-name="Gotek X" data-price="11.99">Add to Cart</button>
+            <button onclick="addToCart('Gotek X', 11.99)">Add to Cart</button>
           </div>
         </div>
         <div class="variant">
-          <div class="variant-info">Gotek Pod 0.8 Ohms - £5.00</div>
+          <div class="variant-info"><span>Gotek Pod 0.8 Ohms - £5.00</span></div>
           <div class="variant-buttons">
-            <button class="view-details" onclick="window.location.href='gotek.html'">View Details</button>
-            <button class="add-cart" data-name="Gotek Pod 0.8 Ohms" data-price="5.00">Add to Cart</button>
+            <button class="view-details" onclick="window.location.href='gotek-pod.html'">View Details</button>
+            <button onclick="addToCart('Gotek Pod 0.8 Ohms', 5.00)">Add to Cart</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Add more categories like Blue Raspberry, Dinner Lady, etc. in same format -->
+    <!-- Repeat all categories using the same format -->
+    <!-- Bluerazz 20mg -->
+    <div class="category">
+      <button class="category-header toggle">
+        <span>Blue Raspberry - 20mg</span>
+        <span class="category-arrow">▼</span>
+      </button>
+      <div class="variants">
+        <div class="variant">
+          <div class="variant-info"><span>Blue Raspberry 20mg - £12.50</span></div>
+          <div class="variant-buttons">
+            <button class="view-details" onclick="window.location.href='bluerazz-20mg.html'">View Details</button>
+            <button onclick="addToCart('Blue Raspberry 20mg', 12.50)">Add to Cart</button>
+          </div>
+        </div>
+        <div class="variant">
+          <div class="variant-info"><span>Blue Raspberry 18mg - £12.50</span></div>
+          <div class="variant-buttons">
+            <button class="view-details" onclick="window.location.href='bluerazz-18mg.html'">View Details</button>
+            <button onclick="addToCart('Blue Raspberry 18mg', 12.50)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Add all remaining products similarly -->
   </main>
 
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="copyright">© 2026 <strong>Vapes 4 You</strong></div>
+    </div>
+  </footer>
+
   <script>
-    // Toggle categories
-    document.querySelectorAll('.category-header').forEach(btn => {
+    // Toggle category
+    const toggles = document.querySelectorAll('.category-header');
+    toggles.forEach(btn => {
       btn.addEventListener('click', () => {
         const variants = btn.nextElementSibling;
         const arrow = btn.querySelector('.category-arrow');
@@ -77,49 +114,32 @@
 
     // Cart logic
     let cart = [];
-    const checkoutBtn = document.getElementById('checkoutBtn');
+    const cartCount = document.getElementById('cart-count');
+    const cartBtn = document.getElementById('cart-btn');
 
-    function updateCartCount() {
-      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-      checkoutBtn.textContent = `Cart (${totalQty})`;
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      cartCount.textContent = cart.length;
+      alert(`${name} added to cart`);
     }
 
-    document.querySelectorAll('.add-cart').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.dataset.name;
-        const price = parseFloat(btn.dataset.price);
-
-        const existing = cart.find(i => i.name === name);
-        if(existing) existing.qty++;
-        else cart.push({ name, price, qty: 1 });
-
-        updateCartCount();
-      });
-    });
-
-    // Stripe checkout
-    const stripe = Stripe('pk_live_XXXXXXXXXXXX'); // replace with your key
-
-    checkoutBtn.addEventListener('click', async () => {
-      if(cart.length === 0) return alert('Cart is empty!');
-
-      const line_items = cart.map(item => ({
-        price_data: {
-          currency: 'gbp',
-          product_data: { name: item.name },
-          unit_amount: Math.round(item.price * 100)
-        },
-        quantity: item.qty
-      }));
-
-      const response = await fetch('/.netlify/functions/create-checkout-session', {
+    cartBtn.addEventListener('click', () => {
+      if(cart.length === 0) {
+        alert('Your cart is empty');
+        return;
+      }
+      // Call your serverless Stripe checkout endpoint
+      fetch('/.netlify/functions/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ line_items })
+        body: JSON.stringify({ items: cart })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.url) {
+          window.location.href = data.url;
+        }
       });
-
-      const session = await response.json();
-      stripe.redirectToCheckout({ sessionId: session.id });
     });
   </script>
 
