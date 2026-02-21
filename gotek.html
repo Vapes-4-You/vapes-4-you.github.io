@@ -2,65 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Aspire Gotek | Vapes 4 You</title>
-  <meta name="description" content="Vapes 4 You - Aspire Gotek vaping devices">
+  <title>Gotek X Details</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <style>
-    .product-container { display: flex; flex-wrap: wrap; gap: 20px; max-width: var(--max-width); margin: 20px auto; padding: 0 14px; }
-    .product-left { flex: 2; min-width: 300px; }
-    .product-right { flex: 1; min-width: 250px; border: 1px solid #ccc; background: #fff; padding: 20px; border-radius: 8px; }
+    .product-container { display: flex; max-width: 900px; margin: 30px auto; gap: 30px; }
+    .product-description { flex: 1; }
+    .product-image { flex: 1; }
+    .product-image img { width: 100%; border-radius: 10px; }
+    .site-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #f8f8f8; }
+    .cart-btn { padding: 8px 15px; background: #6772e5; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <button class="icon-btn menu" aria-label="Open menu" title="Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
     <div class="logo">Vapes 4 You</div>
-    <div class="header-right">
-      <button class="icon-btn" aria-label="Search" title="Search">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/></svg>
-      </button>
-      <a class="icon-btn cart" href="shop.html" aria-label="Back to Shop" title="Back to Shop">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M6 6h15l-1.6 8.5a2 2 0 0 1-2 1.5H9.6a2 2 0 0 1-2-1.5L6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
+    <button class="cart-btn" onclick="window.location.href='shop.html'">Cart</button>
   </header>
 
-  <main class="content">
+  <main>
     <div class="product-container">
-      <div class="product-left">
-        <h1>Aspire Gotek</h1>
-        <p>The Aspire Gotek is a sleek and sophisticated pod vaping device designed for both beginners and experienced vapers. With its compact form factor and innovative pod system, the Gotek delivers exceptional flavor and vapor production. The device features a draw-activated mechanism, making it incredibly easy to use—simply inhale and enjoy. Perfect for on-the-go vaping, the Aspire Gotek combines portability with performance. Whether you're transitioning from smoking or looking for a reliable daily driver, the Gotek pod system offers reliability you can count on. Experience premium vaping with the trusted Aspire brand.</p>
+      <div class="product-description">
+        <h1>Gotek X</h1>
+        <p>High-quality Aspire Gotek X pod device. Perfect for smooth vaping with adjustable airflow and long-lasting battery. Ideal for beginners and experienced vapers.</p>
+        <ul>
+          <li>Price: £11.99</li>
+          <li>Capacity: 2ml, Resistance: 1.0 Ohm</li>
+        </ul>
       </div>
-
-      <div class="product-right">
-        <h2>Buy Now</h2>
-        <div style="margin-bottom: 20px;">
-          <p><strong>Gotek X - £11.99</strong></p>
-          <button onclick="window.location.href='https://buy.stripe.com/8x27sNe971OV0bc0TK2cg00'" style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Buy Now</button>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <p><strong>Gotek Pod 0.8 Ohms - £5.00</strong></p>
-          <button onclick="alert('Coming soon')" style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Buy Now</button>
-        </div>
-        <div>
-          <p><strong>2 For £8 - Pods Bundle - £8.00</strong></p>
-          <button onclick="alert('Coming soon')" style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Buy Now</button>
-        </div>
+      <div class="product-image">
+        <img src="images/gotek-x.jpg" alt="Gotek X">
       </div>
     </div>
   </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="copyright">© 2026 <strong>Vapes 4 You</strong></div>
-    </div>
-  </footer>
 
 </body>
 </html>
